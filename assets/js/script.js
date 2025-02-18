@@ -297,7 +297,7 @@ document.addEventListener("keydown", function (event) {
 // Timer para desbloquear botões
 setTimeout(function () {
     tempoAcabou = true;
-}, 15000);
+}, 1000);
 
 let contador = 15;
 let timer = setInterval(function () {
@@ -313,7 +313,7 @@ let timer = setInterval(function () {
     setTimeout(function () {
       tempoAcabou = true;
       document.getElementById("mensagem").style.display = "block";
-    }, 15000);
+    }, 1000);
     
 //Notification
     function showNotification() {
