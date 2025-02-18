@@ -12,7 +12,7 @@
     <meta name="author" content="Davi" />
     <link rel="icon" href="./assets/svg/logo.svg" type="image/svg+xml" />
     <link href="./assets/css/google.css" rel="stylesheet" />
-    <link href="./assets/boxicons.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
     <link rel="preload" href="./assets/css/style.min.css" as="style" />
     <link rel="stylesheet" href="./assets/css/style.min.css" />
     <link rel="stylesheet" href="./main.css" />
@@ -21,10 +21,39 @@
       type="text/css"
       href="./assets/css/animate.min.css"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="./assets/js/jquery.min.js"></script>
+    <style>
+        #settings-list {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 20px;
+        }
 
-</head>
- <body>
+        .setting-card {
+          display: flex;
+          align-items: center;
+          background: rgba(255, 255, 255, 0.2);
+          backdrop-filter: blur(10px);
+          border-radius: 10px;
+          margin: 10px;
+          width: 80%;
+          padding: 15px;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .setting-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 0 10px rgba(0, 204, 255, 0.8);
+        }
+
+        .setting-card i {
+          margin-right: 10px;
+        }
+    </style>
+  </head>
+  <body>
     <header>
         <div id="header-content">
             <a href="/"> 
@@ -49,14 +78,41 @@
             <div id="clock" onload="currentTime()"></div>
         </div>
     </header>
+    <div style="height: 70px;"></div>
+    <section id="settings-list">
+        <div class="setting-card">
+            <i class="bi bi-file-earmark-text"></i> User's Guide
+        </div>
+        <div class="setting-card">
+            <i class="bi bi-shield-lock"></i> Data Handling/Health & Safety
+        </div>
+        <div class="setting-card">
+            <i class="bi bi-person-circle"></i> PSN™
+        </div>
+        <div class="setting-card">
+            <i class="bi bi-bell"></i> Notifications
+        </div>
+        <div class="setting-card">
+            <i class="bi bi-key"></i> Login Settings
+        </div>
+        <div class="setting-card">
+            <i class="bi bi-shield-lock"></i> Parental Controls
+        </div>
+        <div class="setting-card">
+            <i class="bi bi-save"></i> Application Saved Data Management
+        </div>
+        <div class="setting-card">
+            <i class="bi bi-hdd"></i> System Storage Management
+        </div>
+    </section>
 
-<div>
-    <div class="box">
-        <div class="wave -one"></div>
-        <div class="wave -two"></div>
-        <div class="wave -three"></div>
-      </div>
-</div>
+    <div>
+        <!-- <div class="box">
+            <div class="wave -one"></div>
+            <div class="wave -two"></div>
+            <div class="wave -three"></div>
+        </div> -->
+    </div>
     <script src="./assets/js/script.js"></script>
- </body>
+  </body>
 </html>

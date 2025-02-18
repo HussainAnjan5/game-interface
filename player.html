@@ -4,11 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Playstation 4</title>
-    <meta
-      name="description"
-      content="Responsive Website PlayStation by Davi S."
-    />
+    <title>Player List</title>
+    <meta name="description" content="Responsive Website PlayStation by Davi S." />
     <meta name="author" content="Davi" />
     <link rel="icon" href="./assets/svg/logo.svg" type="image/svg+xml" />
     <link href="./assets/css/google.css" rel="stylesheet" />
@@ -16,48 +13,271 @@
     <link rel="preload" href="./assets/css/style.min.css" as="style" />
     <link rel="stylesheet" href="./assets/css/style.min.css" />
     <link rel="stylesheet" href="./main.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="./assets/css/animate.min.css"
-    />
+    <link rel="stylesheet" type="text/css" href="./assets/css/animate.min.css" />
     <script src="./assets/js/jquery.min.js"></script>
+    <style>
+        /* Player List Section Styling */
+        #player-list {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center; /* Center cards horizontally */
+          padding: 20px;
+          z-index: 1; /* Ensure player cards are on top */
+        }
 
-</head>
- <body>
-    <header>
-        <div id="header-content">
-            <a href="/"> 
-                <div id="plus" tabindex="0"></div> 
-            </a>
-            <div id="text-info">
-                <span>God of War Ragnarok now available!</span>
-            </div>
-            <a href="/player.html"> 
-                <div id="friends">+5</div>
-            </a>
-            <a href="/trophy.html">
-            <div id="trophies">
-                +6 
-            </div></a>
-            <a href="/setting.html">
-                <div id="userName">Setting</div>
-            </a>
-            <a href="/contact.html">
-                <div id="contact">Contact</div>
-            </a>
-            <div id="clock" onload="currentTime()"></div>
+        /* Player Card Styling */
+        .player-card1 {
+          background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+          backdrop-filter: blur(10px); /* Glass effect */
+          border-radius: 10px;
+          margin: 20px;
+          margin-top: 50px;
+          width: 80%; /* 80% of the parent container */
+          height: 15vh; /* Set height to 15vh */
+          display: flex;
+          flex-direction: row; /* Horizontal layout */
+          justify-content: space-between; /* Space between sections */
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .player-card {
+          background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+          backdrop-filter: blur(10px); /* Glass effect */
+          border-radius: 10px;
+          margin: 20px;
+          margin-top: 10px;
+          width: 80%; /* 80% of the parent container */
+          height: 15vh; /* Set height to 15vh */
+          display: flex;
+          flex-direction: row; /* Horizontal layout */
+          justify-content: space-between; /* Space between sections */
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Neon blue glow effect on hover */
+        .player-card:hover {
+          transform: translateY(-10px); /* Slight lift on hover */
+          box-shadow: 0 0 15px 5px rgba(0, 204, 255, 0.8); /* Neon blue glowing effect */
+        }
+
+        /* Flexbox for aligning image, details, and activity */
+        .player-info {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          width: 100%;
+          overflow: hidden; /* Prevent image and content from overflowing */
+        }
+
+        /* Player Image Styling */
+        .player-image {
+          width: 50px; /* Adjusted smaller size */
+          height: 50px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-right: 20px;
+        }
+
+        /* Player Details Styling */
+        .player-details {
+          flex: 1; /* Take up the remaining space */
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          overflow: hidden; /* Prevent overflow */
+        }
+
+        /* Player Name and Info Styling */
+        .player-details h2 {
+          margin-bottom: 5px; /* Smaller margin */
+          font-size: 1em; /* Adjusted font size */
+        }
+
+        .player-details p {
+          font-size: 0.9em; /* Adjusted font size */
+          color: #ddd;
+          margin: 2px 0;
+          overflow: hidden; /* Prevent text overflow */
+        }
+
+        /* Player Activity Styling */
+        .player-activity {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          font-size: 0.8em; /* Smaller font size */
+          color: #ccc;
+          width: 25%; /* Fixed width for activity section */
+          overflow: hidden; /* Prevent overflow */
+        }
+
+        .player-activity .item {
+          margin: 2px;
+        }
+
+        .player-activity .item i {
+          margin-right: 5px;
+        }
+
+        /* Badge Styling */
+        .badge {
+          background-color: #0066ff;
+          padding: 2px 5px;
+          border-radius: 5px;
+          color: #fff;
+          font-size: 0.8em; /* Adjusted font size */
+        }
+
+        .badge:hover {
+          background-color: #0052cc;
+        }
+
+        /* Wave Box Styling */
+        .box {
+          position: absolute;
+          z-index: -1; /* Ensure it stays behind the content */
+        }
+    </style>
+  </head>
+  <body>
+    <header style="background-color: none;">
+      <div id="header-content">
+        <a href="/">
+          <div id="plus" tabindex="0"></div>
+        </a>
+        <div id="text-info">
+          <span>God of War Ragnarok now available!</span>
         </div>
+        <a href="/player.html">
+          <div id="friends">+5</div>
+        </a>
+        <a href="/trophy.html">
+          <div id="trophies">+6</div>
+        </a>
+        <a href="/setting.html">
+          <div id="userName">Setting</div>
+        </a>
+        <a href="/contact.html">
+          <div id="contact">Contact</div>
+        </a>
+        <div id="clock" onload="currentTime()"></div>
+      </div>
     </header>
 
-<div>
+    <!-- Player List Section -->
+    <section id="player-list">
+        <!-- Player 1 -->
+        <div class="player-card1">
+            <div class="player-info">
+                <img src="./assets/img/death.png" alt="Player 1" class="player-image">
+                <div class="player-details">
+                    <h2>John Doe</h2>
+                    <p>Rank: #1</p>
+                    <p>Now Playing: <span class="badge">God of War Ragnarok</span></p>
+                </div>
+                <div class="player-activity">
+                    <div class="item">
+                        <i class="bx bx-trophy"></i> Trophies: 10
+                    </div>
+                    <div class="item">
+                        <i class="bx bx-user"></i> Friends: 15
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Player 2 -->
+        <div class="player-card">
+            <div class="player-info">
+                <img src="./assets/img/battle.png" alt="Player 2" class="player-image">
+                <div class="player-details">
+                    <h2>Jane Smith</h2>
+                    <p>Rank: #2</p>
+                    <p>Now Playing: <span class="badge">The Last of Us Part II</span></p>
+                </div>
+                <div class="player-activity">
+                    <div class="item">
+                        <i class="bx bx-trophy"></i> Trophies: 8
+                    </div>
+                    <div class="item">
+                        <i class="bx bx-user"></i> Friends: 20
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Player 3 -->
+        <div class="player-card">
+            <div class="player-info">
+                <img src="./assets/img/cod.png" alt="Player 3" class="player-image">
+                <div class="player-details">
+                    <h2>Michael Clark</h2>
+                    <p>Rank: #3</p>
+                    <p>Now Playing: <span class="badge">Spider-Man</span></p>
+                </div>
+                <div class="player-activity">
+                    <div class="item">
+                        <i class="bx bx-trophy"></i> Trophies: 12
+                    </div>
+                    <div class="item">
+                        <i class="bx bx-user"></i> Friends: 18
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Player 4 -->
+        <div class="player-card">
+            <div class="player-info">
+                <img src="./assets/img/battle.png" alt="Player 4" class="player-image">
+                <div class="player-details">
+                    <h2>Emily White</h2>
+                    <p>Rank: #4</p>
+                    <p>Now Playing: <span class="badge">Overwatch 2</span></p>
+                </div>
+                <div class="player-activity">
+                    <div class="item">
+                        <i class="bx bx-trophy"></i> Trophies: 5
+                    </div>
+                    <div class="item">
+                        <i class="bx bx-user"></i> Friends: 10
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Player 5 -->
+        <div class="player-card">
+            <div class="player-info">
+                <img src="./assets/img/cod.png" alt="Player 5" class="player-image">
+                <div class="player-details">
+                    <h2>David Brown</h2>
+                    <p>Rank: #5</p>
+                    <p>Now Playing: <span class="badge">FIFA 22</span></p>
+                </div>
+                <div class="player-activity">
+                    <div class="item">
+                        <i class="bx bx-trophy"></i> Trophies: 3
+                    </div>
+                    <div class="item">
+                        <i class="bx bx-user"></i> Friends: 8
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Add more players as needed -->
+    </section>
+    
 
+    <!-- Wave Box Section -->
     <div class="box">
-        <div class="wave -one"></div>
-        <div class="wave -two"></div>
-        <div class="wave -three"></div>
-      </div>
-</div>
+      <div class="wave -one"></div>
+      <div class="wave -two"></div>
+      <div class="wave -three"></div>
+    </div>
+
     <script src="./assets/js/script.js"></script>
- </body>
+  </body>
 </html>
