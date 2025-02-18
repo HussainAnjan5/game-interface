@@ -4,11 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Playstation 4</title>
-    <meta
-      name="description"
-      content="Responsive Website PlayStation by Davi S."
-    />
+    <title>Playstation 4 - Trophies</title>
+    <meta name="description" content="Responsive Website PlayStation by Davi S." />
     <meta name="author" content="Davi" />
     <link rel="icon" href="./assets/svg/logo.svg" type="image/svg+xml" />
     <link href="./assets/css/google.css" rel="stylesheet" />
@@ -16,47 +13,183 @@
     <link rel="preload" href="./assets/css/style.min.css" as="style" />
     <link rel="stylesheet" href="./assets/css/style.min.css" />
     <link rel="stylesheet" href="./main.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="./assets/css/animate.min.css"
-    />
+    <link rel="stylesheet" type="text/css" href="./assets/css/animate.min.css" />
     <script src="./assets/js/jquery.min.js"></script>
+  </head>
+  <style>
+        .trophies-container {
+            display: flex;
+            flex-wrap: wrap; 
+            align-items: center;
+            gap: 15px;
+            justify-content: center;
+            padding: 20px;
+        }
+        .trophy-card {
+            display: flex;
+            align-items: center;
+            background: rgba(8, 8, 8, 0.9);
+            border-radius: 10px;
+            padding: 12px;
+            width: 450px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
+        }
+        .trophy-card:hover {
+            border-color: white;
+            transform: scale(1.05);
+        }
+        .trophy-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 8px;
+            margin-right: 12px;
+        }
+        .trophy-info {
+            flex-grow: 1;
+            text-align: left;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #444;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 5px 0;
+        }
+        .progress-bar span {
+            display: block;
+            height: 100%;
+            background: #ffcc00;
+        }
+        .trophy-icons {
+            font-size: 0.9rem;
+        }
 
-</head>
- <body>
+    .box{
+        position: absolute;
+        z-index: -1;
+    }
+    </style>
+    
+  <body>
     <header>
-        <div id="header-content">
-            <a href="/"> 
-                <div id="plus" tabindex="0"></div> 
-            </a>
-            <div id="text-info">
-                <span>God of War Ragnarok now available!</span>
-            </div>
-            <a href="/player.html"> 
-                <div id="friends">+5</div>
-            </a>
-            <a href="/trophy.html">
-            <div id="trophies">
-                +6 
-            </div></a>
-            <a href="/setting.html">
-                <div id="userName">Setting</div>
-            </a>
-            <a href="/contact.html">
-                <div id="contact">Contact</div>
-            </a>
-            <div id="clock" onload="currentTime()"></div>
+      <div id="header-content">
+        <a href="/"> 
+            <div id="plus" tabindex="0"></div> 
+        </a>
+        <div id="text-info">
+          <span>God of War Ragnarok now available!</span>
         </div>
+        <a href="/player.html"> 
+          <div id="friends">+5</div>
+        </a>
+        <a href="/trophy.html">
+          <div id="trophies" class="active">+6</div>
+        </a>
+        <a href="/setting.html">
+          <div id="userName">Setting</div>
+        </a>
+        <a href="/contact.html">
+          <div id="contact">Contact</div>
+        </a>
+        <div id="clock" onload="currentTime()"></div>
+      </div>
     </header>
 
-<div>
+    <div style="height: 70px;"></div>
+
+    <section class="trophies-section">
+        <div class="trophies-container">
+          <div class="trophy-card">
+            <img src="./assets/img/battle.png" alt="Call of Pepe: Modern Memefare" class="trophy-img"/>
+            <div class="trophy-info">
+              <h3>Call of Pepe: Modern Memefare</h3>
+              <div class="progress-bar"><span style="width: 77%;"></span></div>
+              <p>77%</p>
+              <div class="trophy-icons">🏆 1 🥇 9 🥈 30 🥉 50</div>
+            </div>
+          </div>
+      
+          <div class="trophy-card">
+            <img src="./assets/img/death.png" alt="Fartcraft" class="trophy-img"/>
+            <div class="trophy-info">
+              <h3>Fartcraft</h3>
+              <div class="progress-bar"><span style="width: 52%;"></span></div>
+              <p>52%</p>
+              <div class="trophy-icons">🏆 0 🥇 6 🥈 18 🥉 44</div>
+            </div>
+          </div>
+      
+          <div class="trophy-card">
+            <img src="./assets/img/detroit.jpg" alt="FC25" class="trophy-img"/>
+            <div class="trophy-info">
+              <h3>FC25</h3>
+              <div class="progress-bar"><span style="width: 36%;"></span></div>
+              <p>36%</p>
+              <div class="trophy-icons">🏆 0 🥇 5 🥈 94 🥉 61</div>
+            </div>
+          </div>
+      
+          <div class="trophy-card">
+            <img src="./assets/img/destiny.png" alt="Grand Theft Auto: DOGE Edition" class="trophy-img"/>
+            <div class="trophy-info">
+              <h3>Grand Theft Auto: DOGE Edition</h3>
+              <div class="progress-bar"><span style="width: 10%;"></span></div>
+              <p>10%</p>
+              <div class="trophy-icons">🏆 0 🥇 3 🥈 14 🥉 21</div>
+            </div>
+          </div>
+          <div class="trophy-card">
+            <img src="./assets/img/battle.png" alt="Call of Pepe: Modern Memefare" class="trophy-img"/>
+            <div class="trophy-info">
+              <h3>Call of Pepe: Modern Memefare</h3>
+              <div class="progress-bar"><span style="width: 77%;"></span></div>
+              <p>77%</p>
+              <div class="trophy-icons">🏆 1 🥇 9 🥈 30 🥉 50</div>
+            </div>
+          </div>
+      
+          <div class="trophy-card">
+            <img src="./assets/img/death.png" alt="Fartcraft" class="trophy-img"/>
+            <div class="trophy-info">
+              <h3>Fartcraft</h3>
+              <div class="progress-bar"><span style="width: 52%;"></span></div>
+              <p>52%</p>
+              <div class="trophy-icons">🏆 0 🥇 6 🥈 18 🥉 44</div>
+            </div>
+          </div>
+      
+          <div class="trophy-card">
+            <img src="./assets/img/detroit.jpg" alt="FC25" class="trophy-img"/>
+            <div class="trophy-info">
+              <h3>FC25</h3>
+              <div class="progress-bar"><span style="width: 36%;"></span></div>
+              <p>36%</p>
+              <div class="trophy-icons">🏆 0 🥇 5 🥈 94 🥉 61</div>
+            </div>
+          </div>
+      
+          <div class="trophy-card">
+            <img src="./assets/img/destiny.png" alt="Grand Theft Auto: DOGE Edition" class="trophy-img"/>
+            <div class="trophy-info">
+              <h3>Grand Theft Auto: DOGE Edition</h3>
+              <div class="progress-bar"><span style="width: 10%;"></span></div>
+              <p>10%</p>
+              <div class="trophy-icons">🏆 0 🥇 3 🥈 14 🥉 21</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
     <div class="box">
-        <div class="wave -one"></div>
-        <div class="wave -two"></div>
-        <div class="wave -three"></div>
-      </div>
-</div>
+      <div class="wave -one"></div>
+      <div class="wave -two"></div>
+      <div class="wave -three"></div>
+    </div>
+
     <script src="./assets/js/script.js"></script>
- </body>
+  </body>
 </html>
