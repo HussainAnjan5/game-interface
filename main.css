@@ -119,7 +119,7 @@ header {
 }
 
 /* Individual icon and link items */
-#friends, #trophies, #userName, #contact {
+#friends, #trophies, #userName, #contact,#telegram {
     display: inline-block;
     width: 5em;
     height: 3em;
@@ -130,13 +130,30 @@ header {
     color: #eee;
     /* border: 2px solid red; */
 }
-
+#twitter {
+  display: inline-block;
+  width: 5em;
+  height: 2em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: 2rem;
+  color: #eee;
+  /* border: 2px solid rgb(16, 134, 173); */
+}
 #friends {
     background-image: url("./assets/img/friends.png");
 }
 
 #trophies {
     background-image: url("./assets/img/trophy.png");
+}
+#telegram {
+    background-image: url("./assets/img/telegram.png");
+}
+
+#twitter {
+    background-image: url("./assets/img/twitter.png");
 }
 
 #userName {
@@ -359,7 +376,7 @@ header {
 }
 
 .spiderman{
-	background-image: url("./assets/img/spider.png");
+	background-image: url("./assets/img/spider.jpg");
 }
 
 .elden{
