@@ -130,7 +130,7 @@ header {
     color: #eee;
     /* border: 2px solid red; */
 }
-#cpa {
+#friends, #trophies, #userName, #contact,#telegram,#cpa {
     display: inline-block;
     width: 5em;
     height: 3em;

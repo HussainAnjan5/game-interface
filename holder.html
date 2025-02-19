@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pump Station</title>
+    <link rel="icon" href="./assets/svg/logo.svg" type="image/svg+xml" />
+    <link href="./assets/css/google.css" rel="stylesheet" />
+    <link href="./assets/boxicons.min.css" rel="stylesheet" />
+    <link rel="preload" href="./assets/css/style.min.css" as="style" />
+    <link rel="stylesheet" href="./assets/css/style.min.css" />
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="./assets/css/animate.min.css" />
+    <script src="./assets/js/jquery.min.js"></script>
+    
+  </head>
+  <style>
+    body {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #025192;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    border-color: white;
+}
+
+.icon-box {
+    width: 80px;
+    height: 80px;
+    background-color: #055d97d7;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-right: 20px;
+}
+
+.icon-box img {
+    width: 80%;
+    height: 80%;
+}
+
+.text-box h2 {
+    font-size: 22px;
+    margin: 0;
+    color: #fff;
+    font-weight:bold;
+}
+
+.text-box p {
+    color: #ffffffc2;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.bottom-text {
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    margin-top: 10px;
+}
+.box{
+    position:absolute;
+    z-index: -1;
+}
+.back-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.back-button a {
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.back-button a:hover {
+    background-color: #0056b3;
+}
+
+  </style>
+  <body>
+
+      
+      <header>
+        <div id="header-content">
+            <a href="#"> 
+                <div id="plus" tabindex="0"></div> 
+            </a>
+            <div id="text-info">
+                <span>Pump Station Network</span>
+            </div>
+            <a href="#">  
+                <div id="twitter" style="height: 4vh; width: 4vw;"></div>
+            </a>
+            <a href="#">  
+                <div id="cpa" style="height: 4vh; width: 4vw;"></div>
+            </a>
+            <a href="#"> 
+              <div id="telegram" style="height: 4vh; width: 4vw;"></div>
+          </a>
+
+            <a href="/player.html"> 
+                <div id="friends">+5</div>
+            </a>
+            <a href="/trophy.html">
+            <div id="trophies">
+                +6 
+            </div></a>
+        <a ref="/setting.html">
+                <div id="userName">Setting</div>
+            </a>
+            <a href="/contact.html">
+                <div id="contact">Contact</div>
+            </a>
+            <div id="clock" onload="currentTime()"></div>
+        </div>
+    </header>
+
+    <div class="container">
+ <!-- Buy $TS Section -->
+ <div class="card">
+    <div class="icon-box">
+        <img src="assets/img/create.png" alt="Buy $TS">
+    </div>
+    <div class="text-box">
+        <h2>Buy $TS</h2>
+        <p>Once bought, you will now be an official user of TrenchStation.</p>
+    </div>
+</div>
+
+<!-- Join the Telegram Section -->
+<div class="card">
+    <div class="icon-box">
+        <img src="assets/img/telegram.png" alt="Join Telegram">
+    </div>
+    <div class="text-box">
+        <h2>Join the Telegram</h2>
+        <p>Log in to your TG and join our Telegram to keep up with the latest $TS news.</p>
+    </div>
+</div>
+
+<!-- Bottom Text -->
+<div class="bottom-text">
+    <p>Whichever option you choose, you can use TrenchStation Network features.</p>
+    <div class="back-button">
+        <a href="index.html">Back</a>
+    </div>
+    
+</div>
+
+        <div class="box">
+        <div class="wave -one"></div>
+        <div class="wave -two"></div>
+        <div class="wave -three"></div>
+      </div>
+
+    </div>
+
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
