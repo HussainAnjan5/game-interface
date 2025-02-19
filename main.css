@@ -119,7 +119,18 @@ header {
 }
 
 /* Individual icon and link items */
-#friends, #trophies, #userName, #contact,#telegram {
+#friends, #trophies, #userName, #contact,#telegram,#cpa {
+    display: inline-block;
+    width: 5em;
+    height: 3em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 2rem;
+    color: #eee;
+    /* border: 2px solid red; */
+}
+#cpa {
     display: inline-block;
     width: 5em;
     height: 3em;
@@ -154,6 +165,9 @@ header {
 
 #twitter {
     background-image: url("./assets/img/twitter.png");
+}
+#cpa {
+    background-image: url("./assets/img/cpa.png");
 }
 
 #userName {

@@ -297,23 +297,23 @@ document.addEventListener("keydown", function (event) {
 // Timer para desbloquear botões
 setTimeout(function () {
     tempoAcabou = true;
-}, 3000);
+}, 1000);
 
 let contador = 15;
 let timer = setInterval(function () {
-    console.log(contador + " segundos restantes...");
+    console.log(contador + " waiting...");
     contador--;
     if (contador < 0) {
         clearInterval(timer);
-        console.log("O tempo acabou")
+        console.log("timer....")
     }
-}, 3000);
+}, 1000);
 
   
     setTimeout(function () {
       tempoAcabou = true;
       document.getElementById("mensagem").style.display = "block";
-    }, 3000);
+    }, 1000);
     
 //Notification
     function showNotification() {
@@ -354,7 +354,7 @@ let timer = setInterval(function () {
                 setTimeout(() => {
                     notification.remove();
                 }, 8000);
-            }, 3000);
+            }, 1000);
         }, 100);
     }
     
