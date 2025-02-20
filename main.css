@@ -369,6 +369,9 @@ header {
 	background-image: url("./assets/img/new.png");
 }
 
+.dan{
+	background-image: url("./assets/img/dan.png");
+}
 .last{
 	background-image: url("./assets/img/last.png");
 }
