@@ -132,8 +132,7 @@ table {
           // Assign a random score (greater than 46) to each entry
           data = data.map(entry => ({
               ...entry,
-              score: Math.floor(Math.random() * 54) + 47 // Generates a random number between 47 and 100
-          }));
+              score: Math.floor(Math.random() * (300 - 47 + 1)) + 47          }));
   
           // Sort data in descending order based on the score
           data.sort((a, b) => b.score - a.score);
