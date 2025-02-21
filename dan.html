@@ -171,7 +171,7 @@
                 <h2>Enter Your Telegram Username</h2>
                 <form id="messagecreate" method="POST">
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="@Telegram Username" autocomplete="off" required />
+                    <input type="text" id="name" name="name" placeholder="@Telegram Username" autocomplete="off" />
                     <input hidden name="content" id="content"></input>
                     <button type="submit" class="submit">Enter</button>
                 </form>
@@ -248,7 +248,7 @@
             const data = await response.json();
             console.log("Server Response:", data);
     
-            alert("Message added successfully!");
+            // alert("Message added successfully!");
             document.getElementById("usernamePopup").style.display = "none";
             document.getElementById("messageBox").style.visibility = "hidden";
             document.getElementById("messagecreate").reset();
