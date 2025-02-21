@@ -16,124 +16,10 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/animate.min.css" />
     <script src="./assets/js/jquery.min.js"></script>
     <style>
-        /* Player List Section Styling */
-        #player-list {
-          display: flex;
-          flex-direction: column;
-          flex-wrap: wrap;
-          justify-content: center;
-          align-items: center; /* Center cards horizontally */
-          padding: 20px;
-          z-index: 1; /* Ensure player cards are on top */
-        }
-
-        /* Player Card Styling */
-        .player-card1 {
-          background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
-          backdrop-filter: blur(10px); /* Glass effect */
-          border-radius: 10px;
-          margin: 20px;
-          margin-top: 50px;
-          width: 80%; /* 80% of the parent container */
-          height: 15vh; /* Set height to 15vh */
-          display: flex;
-          flex-direction: row; /* Horizontal layout */
-          justify-content: space-between; /* Space between sections */
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .player-card {
-          background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
-          backdrop-filter: blur(10px); /* Glass effect */
-          border-radius: 10px;
-          margin: 20px;
-          margin-top: 10px;
-          width: 80%; /* 80% of the parent container */
-          height: 15vh; /* Set height to 15vh */
-          display: flex;
-          flex-direction: row; /* Horizontal layout */
-          justify-content: space-between; /* Space between sections */
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        /* Neon blue glow effect on hover */
-        .player-card:hover {
-          transform: translateY(-10px); /* Slight lift on hover */
-          box-shadow: 0 0 15px 5px rgba(0, 204, 255, 0.8); /* Neon blue glowing effect */
-        }
-
-        /* Flexbox for aligning image, details, and activity */
-        .player-info {
-          display: flex;
-          align-items: center;
-          justify-content: flex-start;
-          width: 100%;
-          overflow: hidden; /* Prevent image and content from overflowing */
-        }
-
-        /* Player Image Styling */
-        .player-image {
-          width: 50px; /* Adjusted smaller size */
-          height: 50px;
-          border-radius: 50%;
-          object-fit: cover;
-          margin-right: 20px;
-        }
-
-        /* Player Details Styling */
-        .player-details {
-          flex: 1; /* Take up the remaining space */
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          overflow: hidden; /* Prevent overflow */
-        }
-
-        /* Player Name and Info Styling */
-        .player-details h2 {
-          margin-bottom: 5px; /* Smaller margin */
-          font-size: 1em; /* Adjusted font size */
-        }
-
-        .player-details p {
-          font-size: 0.9em; /* Adjusted font size */
-          color: #ddd;
-          margin: 2px 0;
-          overflow: hidden; /* Prevent text overflow */
-        }
-
-        /* Player Activity Styling */
-        .player-activity {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          font-size: 0.8em; /* Smaller font size */
-          color: #ccc;
-          width: 25%; /* Fixed width for activity section */
-          overflow: hidden; /* Prevent overflow */
-        }
-
-        .player-activity .item {
-          margin: 2px;
-        }
-
-        .player-activity .item i {
-          margin-right: 5px;
-        }
-
-        /* Badge Styling */
-        .badge {
-          background-color: #0066ff;
-          padding: 2px 5px;
-          border-radius: 5px;
-          color: #fff;
-          font-size: 0.8em; /* Adjusted font size */
-        }
-
-        .badge:hover {
-          background-color: #0052cc;
-        }
-
-        /* Wave Box Styling */
+      body{
+        overflow: hidden;
+      }
+/* Wave Box Styling */
         .box {
           position: absolute;
           z-index: -1; /* Ensure it stays behind the content */
@@ -157,7 +43,20 @@
 .back-button a:hover {
     background-color: #0056b3;
 }
-
+table {
+  margin: auto;
+  margin-top:8%;
+  width: 50%;
+            border-collapse: collapse;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
     </style>
   </head>
   <body>
@@ -194,6 +93,20 @@
         <div id="clock" onload="currentTime()"></div>
       </div>
     </header>
+    <h2 style="margin-top:5% ; margin-left:5% ;color: #ddd; border-bottom: 2px solid #ddd; width: 11%;">Leaderboard</h2>
+    <table id="leaderboardTable" border="1" style="width: 50%; margin: auto; text-align: center; margin-top: 2%;">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody id="leaderboardBody"></tbody>
+    </table>
+    <div class="back-button">
+      <a href="home.html">Back</a>
+  </div>
 
 
     <!-- Wave Box Section -->
@@ -206,3 +119,51 @@
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
+  <script>
+
+async function fetchLeaderboard() {
+    try {
+        const response = await fetch("http://localhost:8020/MOO755729/getMessages");
+        if (!response.ok) {
+            throw new Error(`Server responded with status: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log("Fetched leaderboard data:", data);
+
+        const table = document.getElementById("leaderboardTable");
+        table.innerHTML = ""; // Clear existing content
+
+        // Create table headings dynamically
+        const tableHead = `
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboardBody"></tbody>
+        `;
+        table.innerHTML = tableHead;
+
+        const tableBody = document.getElementById("leaderboardBody");
+
+        // Populate the table with leaderboard data (limit to 10)
+        data.slice(0, 10).forEach((entry, index) => {
+            const row = `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td>${entry.name}</td>
+                    <td>${entry.score || 0}</td>
+                </tr>`;
+            tableBody.innerHTML += row;
+        });
+    } catch (error) {
+        console.error("Error fetching leaderboard:", error);
+    }
+}
+
+// Fetch leaderboard on page load
+fetchLeaderboard();
+
+</script>

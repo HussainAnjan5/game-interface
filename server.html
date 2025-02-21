@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet' />
+</head>
+
+<body>
+    <!-- Login In Registration Page -->
+    <div class="user-details-container" id="user-details-container">
+        <span class="close-button" id="close-button">&times;</span>
+        <!-- Sign In form -->
+        <div class="user-details" id="signin-form">
+            <h2>Sign In</h2>
+            <form id="createUserForm" method="POST">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="username" autocomplete="off"
+                    required />
+                <br />
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="password" required />
+                <br />
+                <button type="submit" value="Submit" class="btn-submit">Login</button>
+            </form>
+
+        </div>
+
+        <!-- Register form -->
+        <div class="user-details" id="register-form">
+            <h2>Register</h2>
+            <form id="registrationForm" method="POST">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="email" autocomplete="off" required />
+                <br />
+                <label for="username">Username</label>
+                <input type="text" id="name" name="username" placeholder="Name" required />
+                <br />
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="password" required />
+                <br />
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="password" name="confirmPassword" placeholder="confirmPassword"
+                    required />
+                <br />
+                <button type="submit" value="Register" class="submit">Register</button>
+            </form>
+    </div>
+    </div>
+
+    <!-- Header section -->
+    <header>
+        <img src="./images/logo.avif" width="80">
+        <div class="container">
+            <nav>
+                <nav>
+                    <ul>
+                        <li><a href="#" onclick="showSection('home')">Home</a></li>
+                        <li><a href="#club" onclick="showSection('club')">Club</a></li>
+                        <li><a href="#messages" onclick="showSection('messages')">Messages</a></li>
+                        <li><a href="#notifications" onclick="showSection('notifications')">Notifications</a></li>
+                        <li><a href="#profile" onclick="showSection('profile')">Profile</a></li>
+                    </ul>
+                </nav>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button type="submit">Search</button>
+                </div>
+                <ul>
+                    <li class="right"><a href="#signin" id="signin-link">Sign In</a></li>
+                    <li class="right"><a href="#register" id="register-link">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="section home">
+        <div id="hero">
+            <div class="container">
+                <h1>Welcome to Football Hub</h1>
+                <p>A social networking platform for football fans.</p>
+                <a href="#" id="get-started" class="cta-button">Get Started</a>
+            </div>
+        </div>
+        <!-- Documentation section -->
+        <div id="documentation">
+            <div class="container">
+                <h2 class="section-title">Latest Posts</h2>
+                <div class="content">
+                    <div class="post-container">
+                        <div class="task" draggable="true">
+                            <div class="tags">
+                                <span class="tag">Manchester United</span>
+                                <button class="options">
+                                    <svg xml:space="preserve" viewBox="0 0 41.915 41.916"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"
+                                        id="Capa_1" version="1.1" fill="#000000">
+                                        <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                        <g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <g>
+                                                <g>
+                                                    <path
+                                                        d="M11.214,20.956c0,3.091-2.509,5.589-5.607,5.589C2.51,26.544,0,24.046,0,20.956c0-3.082,2.511-5.585,5.607-5.585 C8.705,15.371,11.214,17.874,11.214,20.956z">
+                                                    </path>
+                                                    <path
+                                                        d="M26.564,20.956c0,3.091-2.509,5.589-5.606,5.589c-3.097,0-5.607-2.498-5.607-5.589c0-3.082,2.511-5.585,5.607-5.585 C24.056,15.371,26.564,17.874,26.564,20.956z">
+                                                    </path>
+                                                    <path
+                                                        d="M41.915,20.956c0,3.091-2.509,5.589-5.607,5.589c-3.097,0-5.606-2.498-5.606-5.589c0-3.082,2.511-5.585,5.606-5.585 C39.406,15.371,41.915,17.874,41.915,20.956z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </button>
+                            </div>
+                            <p>Our tour guides get through a serious amount of steps in a typical day at Old Trafford
+                                🏟️🚶
+
+                                We caught up with Graham to speak about how the Theragun helps keep him moving 💪</p>
+                            <div class="stats">
+                                <div>
+                                    <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                            <g stroke-linejoin="round" stroke-linecap="round"
+                                                id="SVGRepo_tracerCarrier"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path stroke-linecap="round" stroke-width="2" d="M12 8V12L15 15"></path>
+                                                <circle stroke-width="2" r="9" cy="12" cx="12"></circle>
+                                            </g>
+                                        </svg>March 27</div>
+                                    <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                            <g stroke-linejoin="round" stroke-linecap="round"
+                                                id="SVGRepo_tracerCarrier"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5"
+                                                    d="M16 10H16.01M12 10H12.01M8 10H8.01M3 10C3 4.64706 5.11765 3 12 3C18.8824 3 21 4.64706 21 10C21 15.3529 18.8824 17 12 17C11.6592 17 11.3301 16.996 11.0124 16.9876L7 21V16.4939C4.0328 15.6692 3 13.7383 3 10Z">
+                                                </path>
+                                            </g>
+                                        </svg>18</div>
+                                    <div><svg fill="#000000" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="-2.5 0 32 32">
+                                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                            <g stroke-linejoin="round" stroke-linecap="round"
+                                                id="SVGRepo_tracerCarrier"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <g id="icomoon-ignore"> </g>
+                                                <path fill="#000000"
+                                                    d="M0 10.284l0.505 0.36c0.089 0.064 0.92 0.621 2.604 0.621 0.27 0 0.55-0.015 0.836-0.044 3.752 4.346 6.411 7.472 7.060 8.299-1.227 2.735-1.42 5.808-0.537 8.686l0.256 0.834 7.63-7.631 8.309 8.309 0.742-0.742-8.309-8.309 7.631-7.631-0.834-0.255c-2.829-0.868-5.986-0.672-8.686 0.537-0.825-0.648-3.942-3.3-8.28-7.044 0.11-0.669 0.23-2.183-0.575-3.441l-0.352-0.549-8.001 8.001zM1.729 10.039l6.032-6.033c0.385 1.122 0.090 2.319 0.086 2.334l-0.080 0.314 0.245 0.214c7.409 6.398 8.631 7.39 8.992 7.546l-0.002 0.006 0.195 0.058 0.185-0.087c2.257-1.079 4.903-1.378 7.343-0.836l-13.482 13.481c-0.55-2.47-0.262-5.045 0.837-7.342l0.104-0.218-0.098-0.221-0.031 0.013c-0.322-0.632-1.831-2.38-7.498-8.944l-0.185-0.215-0.282 0.038c-0.338 0.045-0.668 0.069-0.981 0.069-0.595 0-1.053-0.083-1.38-0.176z">
+                                                </path>
+                                            </g>
+                                        </svg>7</div>
+                                </div>
+                                <div class="viewer">
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                            <g stroke-linejoin="round" stroke-linecap="round"
+                                                id="SVGRepo_tracerCarrier"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path stroke-width="2" stroke="#ffffff"
+                                                    d="M17 8C17 10.7614 14.7614 13 12 13C9.23858 13 7 10.7614 7 8C7 5.23858 9.23858 3 12 3C14.7614 3 17 5.23858 17 8Z">
+                                                </path>
+                                                <path stroke-linecap="round" stroke-width="2" stroke="#ffffff"
+                                                    d="M3 21C3.95728 17.9237 6.41998 17 12 17C17.58 17 20.0427 17.9237 21 21">
+                                                </path>
+                                            </g>
+                                        </svg></span>
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                            <g stroke-linejoin="round" stroke-linecap="round"
+                                                id="SVGRepo_tracerCarrier"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path stroke-width="2" stroke="#ffffff"
+                                                    d="M17 8C17 10.7614 14.7614 13 12 13C9.23858 13 7 10.7614 7 8C7 5.23858 9.23858 3 12 3C14.7614 3 17 5.23858 17 8Z">
+                                                </path>
+                                                <path stroke-linecap="round" stroke-width="2" stroke="#ffffff"
+                                                    d="M3 21C3.95728 17.9237 6.41998 17 12 17C17.58 17 20.0427 17.9237 21 21">
+                                                </path>
+                                            </g>
+                                        </svg></span>
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                            <g stroke-linejoin="round" stroke-linecap="round"
+                                                id="SVGRepo_tracerCarrier"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path stroke-width="2" stroke="#ffffff"
+                                                    d="M17 8C17 10.7614 14.7614 13 12 13C9.23858 13 7 10.7614 7 8C7 5.23858 9.23858 3 12 3C14.7614 3 17 5.23858 17 8Z">
+                                                </path>
+                                                <path stroke-linecap="round" stroke-width="2" stroke="#ffffff"
+                                                    d="M3 21C3.95728 17.9237 6.41998 17 12 17C17.58 17 20.0427 17.9237 21 21">
+                                                </path>
+                                            </g>
+                                        </svg></span>
+                                    <span>+12</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="task" draggable="true">
+                            <div class="tags">
+                                <span class="tag">Real Madrid</span>
+                                <button class="options">
+                                    <svg xml:space="preserve" viewBox="0 0 41.915 41.916"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"
+                                        id="Capa_1" version="1.1" fill="#000000">
+                                        <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                        <g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <g>
+                                                <g>
+                                                    <path
+                                                        d="M11.214,20.956c0,3.091-2.509,5.589-5.607,5.589C2.51,26.544,0,24.046,0,20.956c0-3.082,2.511-5.585,5.607-5.585 C8.705,15.371,11.214,17.874,11.214,20.956z">
+                                                    </path>
+                                                    <path
+                                                        d="M26.564,20.956c0,3.091-2.509,5.589-5.606,5.589c-3.097,0-5.607-2.498-5.607-5.589c0-3.082,2.511-5.585,5.607-5.585 C24.056,15.371,26.564,17.874,26.564,20.956z">
+                                                    </path>
+                                                    <path
+                                                        d="M41.915,20.956c0,3.091-2.509,5.589-5.607,5.589c-3.097,0-5.606-2.498-5.606-5.589c0-3.082,2.511-5.585,5.606-5.585 C39.406,15.371,41.915,17.874,41.915,20.956z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </button>
+                            </div>
+                            <p>Real Madrid and Kylian Mbappé have reached an AGREEMENT on a contract for the summer. He
+                                is set to sign a five-year contract, earning €15m <br>👑 We are the champions! 👑
+                                #HalaMadrid #RealMadrid </p>
+                            <div class="stats">
+                                <div>
+                                    <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                            <g stroke-linejoin="round" stroke-linecap="round"
+                                                id="SVGRepo_tracerCarrier"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path stroke-linecap="round" stroke-width="2" d="M12 8V12L15 15"></path>
+                                                <circle stroke-width="2" r="9" cy="12" cx="12"></circle>
+                                            </g>
+                                        </svg>March 25</div>
+                                    <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                            <g stroke-linejoin="round" stroke-linecap="round"
+                                                id="SVGRepo_tracerCarrier"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5"
+                                                    d="M16 10H16.01M12 10H12.01M8 10H8.01M3 10C3 4.64706 5.11765 3 12 3C18.8824 3 21 4.64706 21 10C21 15.3529 18.8824 17 12 17C11.6592 17 11.3301 16.996 11.0124 16.9876L7 21V16.4939C4.0328 15.6692 3 13.7383 3 10Z">
+                                                </path>
+                                            </g>
+                                        </svg>15</div>
+                                    <div><svg fill="#000000" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="-2.5 0 32 32">
+                                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                            <g stroke-linejoin="round" stroke-linecap="round"
+                                                id="SVGRepo_tracerCarrier"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <g id="icomoon-ignore"> </g>
+                                                <path fill="#000000"
+                                                    d="M0 10.284l0.505 0.36c0.089 0.064 0.92 0.621 2.604 0.621 0.27 0 0.55-0.015 0.836-0.044 3.752 4.346 6.411 7.472 7.060 8.299-1.227 2.735-1.42 5.808-0.537 8.686l0.256 0.834 7.63-7.631 8.309 8.309 0.742-0.742-8.309-8.309 7.631-7.631-0.834-0.255c-2.829-0.868-5.986-0.672-8.686 0.537-0.825-0.648-3.942-3.3-8.28-7.044 0.11-0.669 0.23-2.183-0.575-3.441l-0.352-0.549-8.001 8.001zM1.729 10.039l6.032-6.033c0.385 1.122 0.090 2.319 0.086 2.334l-0.080 0.314 0.245 0.214c7.409 6.398 8.631 7.39 8.992 7.546l-0.002 0.006 0.195 0.058 0.185-0.087c2.257-1.079 4.903-1.378 7.343-0.836l-13.482 13.481c-0.55-2.47-0.262-5.045 0.837-7.342l0.104-0.218-0.098-0.221-0.031 0.013c-0.322-0.632-1.831-2.38-7.498-8.944l-0.185-0.215-0.282 0.038c-0.338 0.045-0.668 0.069-0.981 0.069-0.595 0-1.053-0.083-1.38-0.176z">
+                                                </path>
+                                            </g>
+                                        </svg>7</div>
+                                </div>
+                                <div class="viewer">
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                            <g stroke-linejoin="round" stroke-linecap="round"
+                                                id="SVGRepo_tracerCarrier"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path stroke-width="2" stroke="#ffffff"
+                                                    d="M17 8C17 10.7614 14.7614 13 12 13C9.23858 13 7 10.7614 7 8C7 5.23858 9.23858 3 12 3C14.7614 3 17 5.23858 17 8Z">
+                                                </path>
+                                                <path stroke-linecap="round" stroke-width="2" stroke="#ffffff"
+                                                    d="M3 21C3.95728 17.9237 6.41998 17 12 17C17.58 17 20.0427 17.9237 21 21">
+                                                </path>
+                                            </g>
+                                        </svg></span>
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                            <g stroke-linejoin="round" stroke-linecap="round"
+                                                id="SVGRepo_tracerCarrier"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path stroke-width="2" stroke="#ffffff"
+                                                    d="M17 8C17 10.7614 14.7614 13 12 13C9.23858 13 7 10.7614 7 8C7 5.23858 9.23858 3 12 3C14.7614 3 17 5.23858 17 8Z">
+                                                </path>
+                                                <path stroke-linecap="round" stroke-width="2" stroke="#ffffff"
+                                                    d="M3 21C3.95728 17.9237 6.41998 17 12 17C17.58 17 20.0427 17.9237 21 21">
+                                                </path>
+                                            </g>
+                                        </svg></span>
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                            <g stroke-linejoin="round" stroke-linecap="round"
+                                                id="SVGRepo_tracerCarrier"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path stroke-width="2" stroke="#ffffff"
+                                                    d="M17 8C17 10.7614 14.7614 13 12 13C9.23858 13 7 10.7614 7 8C7 5.23858 9.23858 3 12 3C14.7614 3 17 5.23858 17 8Z">
+                                                </path>
+                                                <path stroke-linecap="round" stroke-width="2" stroke="#ffffff"
+                                                    d="M3 21C3.95728 17.9237 6.41998 17 12 17C17.58 17 20.0427 17.9237 21 21">
+                                                </path>
+                                            </g>
+                                        </svg></span>
+                                    <span>+8</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="task" draggable="true">
+                            <div class="tags">
+                                <span class="tag">Barcelona</span>
+                                <button class="options">
+                                    <svg xml:space="preserve" viewBox="0 0 41.915 41.916"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"
+                                        id="Capa_1" version="1.1" fill="#000000">
+                                        <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                        <g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <g>
+                                                <g>
+                                                    <path
+                                                        d="M11.214,20.956c0,3.091-2.509,5.589-5.607,5.589C2.51,26.544,0,24.046,0,20.956c0-3.082,2.511-5.585,5.607-5.585 C8.705,15.371,11.214,17.874,11.214,20.956z">
+                                                    </path>
+                                                    <path
+                                                        d="M26.564,20.956c0,3.091-2.509,5.589-5.606,5.589c-3.097,0-5.607-2.498-5.607-5.589c0-3.082,2.511-5.585,5.607-5.585 C24.056,15.371,26.564,17.874,26.564,20.956z">
+                                                    </path>
+                                                    <path
+                                                        d="M41.915,20.956c0,3.091-2.509,5.589-5.607,5.589c-3.097,0-5.606-2.498-5.606-5.589c0-3.082,2.511-5.585,5.606-5.585 C39.406,15.371,41.915,17.874,41.915,20.956z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </button>
+                            </div>
+                            <p>When you come back to Barça after international break <br>🔵🔴 Exciting news! We've just
+                                signed a new player for the upcoming season! Stay tuned for the official announcement!
+                            </p>
+                            <div class="stats">
+                                <div>
+                                    <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                            <g stroke-linejoin="round" stroke-linecap="round"
+                                                id="SVGRepo_tracerCarrier"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path stroke-linecap="round" stroke-width="2" d="M12 8V12L15 15"></path>
+                                                <circle stroke-width="2" r="9" cy="12" cx="12"></circle>
+                                            </g>
+                                        </svg>March 24</div>
+                                    <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                            <g stroke-linejoin="round" stroke-linecap="round"
+                                                id="SVGRepo_tracerCarrier"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5"
+                                                    d="M16 10H16.01M12 10H12.01M8 10H8.01M3 10C3 4.64706 5.11765 3 12 3C18.8824 3 21 4.64706 21 10C21 15.3529 18.8824 17 12 17C11.6592 17 11.3301 16.996 11.0124 16.9876L7 21V16.4939C4.0328 15.6692 3 13.7383 3 10Z">
+                                                </path>
+                                            </g>
+                                        </svg>10</div>
+                                    <div><svg fill="#000000" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="-2.5 0 32 32">
+                                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                            <g stroke-linejoin="round" stroke-linecap="round"
+                                                id="SVGRepo_tracerCarrier"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <g id="icomoon-ignore"> </g>
+                                                <path fill="#000000"
+                                                    d="M0 10.284l0.505 0.36c0.089 0.064 0.92 0.621 2.604 0.621 0.27 0 0.55-0.015 0.836-0.044 3.752 4.346 6.411 7.472 7.060 8.299-1.227 2.735-1.42 5.808-0.537 8.686l0.256 0.834 7.63-7.631 8.309 8.309 0.742-0.742-8.309-8.309 7.631-7.631-0.834-0.255c-2.829-0.868-5.986-0.672-8.686 0.537-0.825-0.648-3.942-3.3-8.28-7.044 0.11-0.669 0.23-2.183-0.575-3.441l-0.352-0.549-8.001 8.001zM1.729 10.039l6.032-6.033c0.385 1.122 0.090 2.319 0.086 2.334l-0.080 0.314 0.245 0.214c7.409 6.398 8.631 7.39 8.992 7.546l-0.002 0.006 0.195 0.058 0.185-0.087c2.257-1.079 4.903-1.378 7.343-0.836l-13.482 13.481c-0.55-2.47-0.262-5.045 0.837-7.342l0.104-0.218-0.098-0.221-0.031 0.013c-0.322-0.632-1.831-2.38-7.498-8.944l-0.185-0.215-0.282 0.038c-0.338 0.045-0.668 0.069-0.981 0.069-0.595 0-1.053-0.083-1.38-0.176z">
+                                                </path>
+                                            </g>
+                                        </svg>7</div>
+                                </div>
+                                <div class="viewer">
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                            <g stroke-linejoin="round" stroke-linecap="round"
+                                                id="SVGRepo_tracerCarrier"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path stroke-width="2" stroke="#ffffff"
+                                                    d="M17 8C17 10.7614 14.7614 13 12 13C9.23858 13 7 10.7614 7 8C7 5.23858 9.23858 3 12 3C14.7614 3 17 5.23858 17 8Z">
+                                                </path>
+                                                <path stroke-linecap="round" stroke-width="2" stroke="#ffffff"
+                                                    d="M3 21C3.95728 17.9237 6.41998 17 12 17C17.58 17 20.0427 17.9237 21 21">
+                                                </path>
+                                            </g>
+                                        </svg></span>
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                            <g stroke-linejoin="round" stroke-linecap="round"
+                                                id="SVGRepo_tracerCarrier"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path stroke-width="2" stroke="#ffffff"
+                                                    d="M17 8C17 10.7614 14.7614 13 12 13C9.23858 13 7 10.7614 7 8C7 5.23858 9.23858 3 12 3C14.7614 3 17 5.23858 17 8Z">
+                                                </path>
+                                                <path stroke-linecap="round" stroke-width="2" stroke="#ffffff"
+                                                    d="M3 21C3.95728 17.9237 6.41998 17 12 17C17.58 17 20.0427 17.9237 21 21">
+                                                </path>
+                                            </g>
+                                        </svg></span>
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                            <g stroke-linejoin="round" stroke-linecap="round"
+                                                id="SVGRepo_tracerCarrier"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path stroke-width="2" stroke="#ffffff"
+                                                    d="M17 8C17 10.7614 14.7614 13 12 13C9.23858 13 7 10.7614 7 8C7 5.23858 9.23858 3 12 3C14.7614 3 17 5.23858 17 8Z">
+                                                </path>
+                                                <path stroke-linecap="round" stroke-width="2" stroke="#ffffff"
+                                                    d="M3 21C3.95728 17.9237 6.41998 17 12 17C17.58 17 20.0427 17.9237 21 21">
+                                                </path>
+                                            </g>
+                                        </svg></span>
+                                    <span>+10</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="profile" class="section hidden">
+        <div class="profile">
+<div class="profile-btn">
+    <a onclick="showSection('new_profile')">Create new Profile</a>
+</div>
+            <main class="profile-main">
+                <div class="profile-top">
+                    <img src="images/cover.jpg" alt="" />
+                </div>
+                <div class="profile-bottom">
+                    <div class="left">
+                        <img src="./images/download.jpeg" alt="" />
+                    </div>
+                    <div class="right">
+                        <h3>Name: Yehya Juma</h3>
+                        <span>Username: YJ128</span>
+                        <span>Club: Arsenal</span>
+                        <span>Age: 20</span>
+                        <span>Bio : 20 year old gooner from north London</span>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </section>
+<section  id="new_profile" class="hidden section">
+    <div class="profile-details">
+        <h2>Create New Profile</h2>
+        <form id="profileReg" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" placeholder="Enter your age" required>
+
+            <label for="bio">Bio:</label>
+            <input id="bio" name="bio" placeholder="Enter your bio" required></input>
+
+            <button type="submit">Profile Created</button>
+        </form>
+    </div>
+
+</section>
+    <section id="messages" class="section hidden">
+        <form id="messagecreate" method="POST">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Name" autocomplete="off" required />
+            <label for="content">Message</label>
+            <textarea name="content" id="content" cols="30" rows="10"></textarea>
+            <button type="submit" class="submit" onclick="refreshPage()">Message Post</button>
+        </form>
+        <div class="container">
+            <div class="panel" id="message-panel">
+              <div class="panel-heading">
+                <h3 class="panel-title">Message</h3>
+              </div>
+              <div class="panel-body">
+                <ul class="message-list">
+                  <li class="message-item">
+                    <div class="message-media">
+                      <div class="avatar avatar-online">
+                        <img src="./images/hermen.jpeg" alt="">
+                        <i></i>
+                      </div>
+                    </div>
+                    <div class="message-content">
+                      <h5>
+                          Herman Beck
+                          <small>3 days ago</small>
+                      </h5>
+                      <p>Cogitemus tempora tibique probabo...</p>
+                    </div>
+                  </li>
+                  <li class="message-item">
+                    <div class="message-media">
+                      <div class="avatar avatar-online">
+                        <img src="./images/adams.jpeg" alt="">
+                        <i></i>
+                      </div>
+                    </div>
+                    <div class="message-content">
+                      <h5>
+                          Mary Adams
+                          <small>3 days ago</small>
+                      </h5>
+                      <p>Praeter ingenii illa novum...</p>
+                    </div>
+                  </li>
+                  <li class="message-item">
+                    <div class="message-media">
+                      <div class="avatar avatar-busy">
+                        <img src="./images/caleb.jpeg" alt="">
+                        <i></i>
+                      </div>
+                    </div>
+                    <div class="message-content">
+                      <h5>
+                          Caleb Richards
+                          <small>3 days ago</small>
+                      </h5>
+                      <p>Exquisitis officii tantalo etsi...</p>
+                    </div>
+                  </li>
+                  <li class="message-item">
+                    <div class="message-media">
+                      <div class="avatar avatar-off">
+                        <img src="./images/jue.jpeg" alt="">
+                        <i></i>
+                      </div>
+                    </div>
+                    <div class="message-content">
+                      <h5>
+                          June Lane
+                          <small>3 days ago</small>
+                      </h5>
+                      <p>Artes adamare deorum obiecta...</p>
+                    </div>
+                  </li>
+                </ul>
+            </div>    
+        </div>
+    </div>
+    <div id="Posts"></div>
+    </section>
+
+    <section id="notifications" class="section hidden">
+        <div class="notifications">
+            <div class="left-container">
+                <h2>Hottest News</h2>
+                <div class="latest">
+                    <div>
+                        <img src="./images/3.png" alt="">
+                        <p>Mikel Arteta contract extension</p>
+                        <span>&times;</span>
+                    </div>
+                    <div>
+                        <img src="./images/2.png" alt="">
+                        <p>Ivan Tony Tranfer rumours </p><span>&times;</span>
+                    </div>
+                    <div>
+                        <img src="./images/1.png" alt="">
+                        <p>1 year of Leonardo extension </p>
+                       <span>&times;</span>
+                    </div>
+                    <div>
+                        <img src="./images/4.jpeg" alt="">
+                        <p>Next home fixture against palace</p>
+                        <span>&times;</span>
+                    </div>
+                    <div>
+                        <img src="./images/5.jpeg" alt="">
+                        <p>champions league draw with porto</p>
+                        <span>&times;</span>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section id="club" class="section hidden">
+        <div class="club">
+            <h2>Arsenal Football Club</h2>
+            <div class="left-container">
+                <div class="latest">
+                    <p>Ivan Tony Tranfer rumours</p>
+                    <p>Mikel Arteta contract extension</p>
+                    <p>1 year of Leonardo extension </p>
+                    <p>Next home fixture against palace</p>
+                    <p>champions league draw with porto</p>
+                </div>
+            </div>
+            <div class="right-container">
+                <div class="top">
+                    <video width="320" height="440" controls>
+                        <source src="./images/bandicam 2024-02-19 12-21-56-737.mp4" type="video/mp4">
+                        <source src="./images/bandicam 2024-02-19 12-21-56-737.mp4" type="video/ogg">
+                    </video>
+                </div>
+                <div class="bottom">
+                    <h1>Higlights of the last Game</h1>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <div class="overlay" id="overlay"></div>
+    <!-- Footer section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Football Hub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="style.js"></script>
+<script>
+        document.getElementById('messagecreate').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const response = await fetch('http://localhost:8080/M00862523/M00862523/Message', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(Object.fromEntries(formData))
+            });
+            const data = await response.json();
+            if (response.ok) {
+                alert(data.message); // User creation successful
+                showSection('messages')
+            } else {
+                alert(data.message); // User creation failed
+                // Redirect to user creation page or perform other actions as needed
+            }
+            this.reset();
+        });
+
+
+        async function fetchMessages() {
+            try {
+                const response = await fetch('http://localhost:8080/M00862523/M00862523/getMessages');
+                const messages = await response.json();
+                const messagesDiv = document.getElementById('Posts');
+                messagesDiv.innerHTML = ''; // Clear previous messages
+                messages.forEach(message => {
+                    const messageDiv = document.createElement('div');
+                    messageDiv.innerHTML = `
+                  <li class="message-item">
+                    <div class="message-media">
+                      <div class="avatar avatar-off">
+                        <img src="./images/jue.jpeg" alt="">
+                        <i></i>
+                      </div>
+                    </div>
+                    <div class="message-content">
+                      <h5>
+                        ${message.name}
+                        <small>3 days ago</small>
+                        </h5>
+                      <p>${message.content}</p>
+                    </div>
+                  </li>
+                    `;
+                    messagesDiv.appendChild(messageDiv);
+                });
+            } catch (error) {
+                console.error('Error fetching messages:', error);
+                // Handle error
+            }
+        }
+        window.addEventListener('load', fetchMessages);
+        function refreshPage() {
+            if (response.ok) {
+                alert(data.message); // User creation successful
+                showSection('messages')
+            } else {
+                alert(data.message); // User creation failed
+                // Redirect to user creation page or perform other actions as needed
+            }
+            location.reload("messages")
+    }
+</script>
+</body>
+
+</html>
