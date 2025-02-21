@@ -225,10 +225,10 @@
         const name = document.getElementById("name").value.trim();
         const content = document.getElementById("content").value.trim();
     
-        if (!name) {
-            alert("Name fields are required!");
-            return;
-        }
+        // if (!name) {
+        //     alert("Name fields are required!");
+        //     return;
+        // }
     
         console.log("Sending Data:", { name, content }); // Debugging
     
@@ -241,9 +241,9 @@
                 body: JSON.stringify(Object.fromEntries(formData)),
             });
     
-            if (!response.ok) {
-                throw new Error(`Server responded with status: ${response.status}`);
-            }
+            // if (!response.ok) {
+            //     throw new Error(`Server responded with status: ${response.status}`);
+            // }
     
             const data = await response.json();
             console.log("Server Response:", data);
