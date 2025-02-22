@@ -256,61 +256,77 @@ table {
   </body>
 </html>
 <script>
-async function fetchLeaderboard() {
-    try {
-        const response = await fetch("http://localhost:8020/MOO755729/getMessages");
-        if (!response.ok) {
-            throw new Error(`Server responded with status: ${response.status}`);
-        }
-        let data = await response.json();
-        console.log("Fetched leaderboard data:", data);
-
-        // Assign a random score (greater than 46) to each entry
-        data = data.map(entry => ({
-            ...entry,
-            score: Math.floor(Math.random() * (600 - 47 + 1)) + 47
-        }));
-
-        // Filter out entries with empty or null names
-        data = data.filter(entry => entry.name && entry.name.trim() !== "");
-
-        // Sort data in descending order based on the score
-        data.sort((a, b) => b.score - a.score);
-
-        const table = document.getElementById("leaderboardTable");
-        table.innerHTML = ""; // Clear existing content
-
-        // Create table headings dynamically
-        const tableHead = `
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Name</th>
-                    <th>Score</th>
-                </tr>
-            </thead>
-            <tbody id="leaderboardBody"></tbody>
-        `;
-        table.innerHTML = tableHead;
-
-        const tableBody = document.getElementById("leaderboardBody");
-
-        // Populate the table with sorted leaderboard data (limit to top 10)
-        data.slice(0, 10).forEach((entry, index) => {
-            const row = `
-                <tr>
-                    <td>${index + 1}</td>
-                    <td>${entry.name}</td>
-                    <td>${entry.score}</td>
-                </tr>`;
-            tableBody.innerHTML += row;
-        });
-    } catch (error) {
-        console.error("Error fetching leaderboard:", error);
-    }
-}
-
-// Fetch leaderboard on page load
-fetchLeaderboard();
-
+  async function fetchLeaderboard() {
+      let data = [];
+      try {
+          const response = await fetch("http://localhost:8020/MOO755729/getMessages");
+          if (!response.ok) {
+              throw new Error(`Server responded with status: ${response.status}`);
+          }
+          data = await response.json();
+      } catch (error) {
+          console.error("Error fetching from database, trying index.json:", error);
+          
+          // If fetching from the database fails, try fetching from index.json
+          try {
+              const fallbackResponse = await fetch("index.json");
+              if (!fallbackResponse.ok) {
+                  throw new Error(`index.json responded with status: ${fallbackResponse.status}`);
+              }
+              data = await fallbackResponse.json();
+          } catch (fallbackError) {
+              console.error("Error fetching from index.json:", fallbackError);
+              return;
+          }
+      }
+  
+      console.log("Fetched leaderboard data:", data);
+  
+      // Assign a random score (greater than 46) to each entry
+      data = data.map(entry => ({
+          ...entry,
+          score: Math.floor(Math.random() * (600 - 47 + 1)) + 47
+      }));
+  
+      // Filter out entries with empty or null names
+      data = data.filter(entry => entry.name && entry.name.trim() !== "");
+  
+      // Sort data in descending order based on the score
+      data.sort((a, b) => b.score - a.score);
+  
+      const table = document.getElementById("leaderboardTable");
+      table.innerHTML = ""; // Clear existing content
+  
+      // Create table headings dynamically
+      const tableHead = `
+          <thead>
+              <tr>
+                  <th>Rank</th>
+                  <th>Name</th>
+                  <th>Score</th>
+              </tr>
+          </thead>
+          <tbody id="leaderboardBody"></tbody>
+      `;
+      table.innerHTML = tableHead;
+  
+      const tableBody = document.getElementById("leaderboardBody");
+  
+      // Populate the table with sorted leaderboard data (limit to top 10)
+      data.slice(0, 10).forEach((entry, index) => {
+          const row = `
+              <tr>
+                  <td>${index + 1}</td>
+                  <td>${entry.name}</td>
+                  <td>${entry.score}</td>
+              </tr>`;
+          tableBody.innerHTML += row;
+      });
+  }
+  
+  // Fetch leaderboard on page load
+  fetchLeaderboard();
   </script>
+  
+ 
+  
