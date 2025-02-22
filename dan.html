@@ -164,20 +164,43 @@
             <div id="clock" onload="currentTime()"></div>
         </div>
     </header>
-    <div id="usernamePopup" class="popup-overlay">
+<div id="usernamePopup" class="popup-overlay">
     <div id="new_message" class="section">
         <div class="main_section">
             <div class="popup">
-                <h2>Enter Your Telegram Username</h2>
-                <form id="messagecreate" method="POST">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="@Telegram Username" autocomplete="off" />
-                    <input hidden name="content" id="content"></input>
-                    <button type="submit" class="submit">Enter</button>
-                </form>
+                <h2>Press Enter or Click to Start the Game</h2>
+                <p>Get ready to play!</p>
+                <button id="startGameButton" class="submit">Start Game</button>
             </div>
         </div>
-    </div>    </div>
+    </div>
+</div>
+
+<script>
+    // Function to start the game
+    function startGame() {
+        console.log("Game Started!");
+
+        // Hide the popup
+        document.getElementById("usernamePopup").style.display = "none";
+
+        // Add your actual game start logic here
+    }
+
+    // Event listener for Enter key
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault(); // Prevent default behavior
+            startGame();
+        }
+    });
+
+    // Event listener for button click
+    document.getElementById("startGameButton").addEventListener("click", function () {
+        startGame();
+    });
+</script>
+
     </div>
     
     
@@ -218,38 +241,6 @@
 <script src="dan.js"></script>
 
 
-<script>
-    document.getElementById("messagecreate").addEventListener("submit", async function (event) {
-        event.preventDefault(); 
-        const formData = new FormData(this);
-        const name = document.getElementById("name").value.trim();
-        const content = document.getElementById("content").value.trim();
-
-        console.log("Sending Data:", { name, content }); // Debugging
-
-        try {
-            const response = await fetch("http://localhost:8020/MOO755729/createMessage", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(Object.fromEntries(formData)),
-            });
-
-            const data = await response.json();
-            console.log("Server Response:", data);
-        } catch (error) {
-            console.error("Error submitting data:", error);
-        }
-
-        // Hide popup regardless of input
-        document.getElementById("usernamePopup").style.display = "none";
-        document.getElementById("messageBox").style.visibility = "hidden";
-
-        // Reset form
-        document.getElementById("messagecreate").reset();
-    });
-</script>
 <script>
     // Copyright (c) 2014 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
@@ -1073,16 +1064,61 @@
         overlay.classList.add("popup-overlay");
         overlay.id = "game-popup";
 
-        // Create popup content
         overlay.innerHTML = `
-            <div class="popup">
-                <h2>Game Over!</h2>
-                <p>Your Score: <strong>${actualScore}</strong></p>
-                <a href="/leaderboard.html" style="text-decoration: none; color: white;"><button>Enter</button></a>
-                <button id="restart-btn">Restart</button>
-            </div>
-        `;
-        document.body.appendChild(overlay);
+    <form id="messagecreate">
+        <div class="popup">
+            <h2>Game Over!</h2>
+            <label for="name">Enter Your Telegram Username</label>
+            <input type="text" id="name" name="name" placeholder="@Telegram Username" autocomplete="off" required />
+            <p>Your Score: <strong>${actualScore}</strong></p>
+            <input type="hidden" name="content" id="content" value="${actualScore}" />
+            <button type="submit" id="submit-btn" class="submit">Enter</button>
+            <button type="button" id="restart-btn">Restart</button>
+        </div>
+    </form>
+    `;
+    document.body.appendChild(overlay);
+
+
+// Add event listener for form submission
+document.getElementById("messagecreate").addEventListener("submit", async function (event) {
+        event.preventDefault(); 
+
+        // Get values from input fields
+        const name = document.getElementById("name").value.trim();
+        const content = parseInt(document.getElementById("content").value.trim(), 10);
+
+        console.log("Submitting Data:", { name, content });
+
+        // Ensure both fields are filled
+        if (!name || isNaN(content)) {
+            console.error("Invalid input values.");
+            return;
+        }
+
+        // Prepare data to be sent
+        const dataToSend = { name: name, content: content }; // Sending name & score
+
+        try {
+            const response = await fetch("http://localhost:8040/MOO755729/createMessage", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(dataToSend),
+            });
+
+            const data = await response.json();
+            console.log("Server Response:", data);
+
+            // Redirect to leaderboard.html after successful submission
+            if (response.ok) {
+                window.location.href = "/leaderboard.html";
+            } else {
+                console.error("Failed to save score:", data);
+            }
+        } catch (error) {
+            console.error("Error submitting data:", error);
+        }
+    });
 
         // Ensure it's at the front
         overlay.style.zIndex = "9999";

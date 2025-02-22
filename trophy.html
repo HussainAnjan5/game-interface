@@ -259,7 +259,7 @@ table {
   async function fetchLeaderboard() {
       let data = [];
       try {
-          const response = await fetch("http://localhost:8020/MOO755729/getMessages");
+          const response = await fetch("http://localhost:8040/MOO755729/getMessages");
           if (!response.ok) {
               throw new Error(`Server responded with status: ${response.status}`);
           }
@@ -281,22 +281,22 @@ table {
       }
   
       console.log("Fetched leaderboard data:", data);
-  
-      // Assign a random score (greater than 46) to each entry
+
+      // Ensure content is treated as a valid number for score
       data = data.map(entry => ({
           ...entry,
-          score: Math.floor(Math.random() * (600 - 47 + 1)) + 47
+          score: entry.content ? parseFloat(entry.content) || 0 : 0
       }));
-  
+
       // Filter out entries with empty or null names
       data = data.filter(entry => entry.name && entry.name.trim() !== "");
-  
+
       // Sort data in descending order based on the score
       data.sort((a, b) => b.score - a.score);
-  
+
       const table = document.getElementById("leaderboardTable");
       table.innerHTML = ""; // Clear existing content
-  
+
       // Create table headings dynamically
       const tableHead = `
           <thead>
@@ -309,9 +309,9 @@ table {
           <tbody id="leaderboardBody"></tbody>
       `;
       table.innerHTML = tableHead;
-  
+
       const tableBody = document.getElementById("leaderboardBody");
-  
+
       // Populate the table with sorted leaderboard data (limit to top 10)
       data.slice(0, 10).forEach((entry, index) => {
           const row = `
@@ -323,10 +323,10 @@ table {
           tableBody.innerHTML += row;
       });
   }
-  
+
   // Fetch leaderboard on page load
   fetchLeaderboard();
-  </script>
+</script>
   
  
   

@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const PORT = 8020;
+const PORT = 8040;
 const connect = require("./Config");
 connect();
 app.use(cors());
@@ -16,7 +16,7 @@ app.use("/MOO755729", userRoute);
 
 // Route to send frontend the backend URL
 app.get("/backendUrl", (req, res) => {
-    const backendUrl = "http://localhost:8020/M00755729";
+    const backendUrl = "http://localhost:8040/M00755729";
     res.json({ url: backendUrl });
 });
 
