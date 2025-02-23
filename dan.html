@@ -1100,7 +1100,7 @@ document.getElementById("messagecreate").addEventListener("submit", async functi
         const dataToSend = { name: name, content: content }; // Sending name & score
 
         try {
-            const response = await fetch("http://localhost:8040/MOO755729/createMessage", {
+            const response = await fetch("http://localhost:8050/MOO755729/createMessage", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(dataToSend),

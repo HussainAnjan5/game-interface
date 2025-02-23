@@ -123,7 +123,7 @@ table {
   async function fetchLeaderboard() {
       let data = [];
       try {
-          const response = await fetch("http://localhost:8040/MOO755729/getMessages");
+          const response = await fetch("http://localhost:8050/MOO755729/getMessages");
           if (!response.ok) {
               throw new Error(`Server responded with status: ${response.status}`);
           }
