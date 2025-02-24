@@ -372,6 +372,9 @@ header {
 .dan{
 	background-image: url("./assets/img/dan.png");
 }
+.flappy{
+	background-image: url("./assets/img/flappy.png");
+}
 .last{
 	background-image: url("./assets/img/last.png");
 }
