@@ -5,5 +5,7 @@ const controller = require("../controller/user.controller");
 
 router.post("/createMessage", controller.createMessage);
 router.get("/getMessages", controller.getMessages); 
+router.post("/createFlappy", controller.createFlappy);
+router.get("/getFlappy", controller.getFlappy); 
 
 module.exports = router;

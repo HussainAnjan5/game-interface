@@ -88,4 +88,29 @@ exports.getMessages = async (req, res) => {
   }
 };
 
+const Createdflappy = require('../models/flappy.models'); 
+
+exports.createFlappy = async (req, res) => {
+  try {
+      const { name, content} = req.body;
+      const Createdflappy = new Created({ name, content });
+      await Createdflappy.save();
+      res.status(201).json({ message: 'Message created successfully', Createdflappy });
+  } catch (error) {
+      console.error('Error creating Message:', error);
+      res.status(500).json({ message: 'Internal server error' });
+  }
+};// In your backend's routes file (e.g., message.routes.js)
+
+exports.getFlappy = async (req, res) => {
+  try {
+      const flappyData = await Createdflappy.find(); 
+      res.status(200).json(flappyData);
+  } catch (error) {
+      console.error('Error fetching Flappy data:', error);
+      res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
+
 
