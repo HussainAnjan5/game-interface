@@ -301,25 +301,24 @@ map = [
 score = {
     current: 0,
     best: null, // DO THIS STRETCH GOAL
-    //values for drawing mapped numbers on canvas
+
     x: cvs.width/2,
     y: 40,
     w: 15,
     h: 25,
+
     reset: function() {
         this.current = 0
     },
-    //display the score
+
     render: function() {
         if (gameState.current == gameState.play ||
             gameState.current == gameState.gameOver) {
-            //change current score number value to string value and access each place value
             let string = this.current.toString()
             let ones = string.charAt(string.length-1)
             let tens = string.charAt(string.length-2)
             let hundreds = string.charAt(string.length-3)
 
-            //if current score has thousands place value: the game is over
             if (this.current >= 1000) {
                 gameState.current = gameState.gameOver
             
